@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfumería MR</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f5f5f2;
+      color: #111;
+      overflow-x: hidden;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(245, 245, 242, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #ddd;
+      z-index: 1000;
+    }
+
+    nav {
+      width: 90%;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo img {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .logo h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #111;
+      letter-spacing: 1px;
+    }
+
+    .menu {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: #333;
+      font-size: 0.95rem;
+      transition: 0.3s;
+    }
+
+    .menu a:hover {
+      color: #777;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 140px 20px 60px;
+      background: #f5f5f2;
+    }
+
+    .hero-content {
+      max-width: 750px;
+    }
+
+    .hero h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 4rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #111;
+    }
+
+    .hero p {
+      color: #666;
+      line-height: 1.8;
+      font-size: 1.1rem;
+      margin-bottom: 35px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 35px;
+      border-radius: 40px;
+      text-decoration: none;
+      background: #111;
+      color: white;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #333;
+    }
+
+    section {
+      padding: 90px 10%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 2.3rem;
+      margin-bottom: 10px;
+      color: #111;
+    }
+
+    .section-title p {
+      color: #777;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      transition: 0.3s;
+      border: 1px solid #e5e5e5;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 22px;
+    }
+
+    .card-content h4 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: #111;
+    }
+
+    .card-content p {
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .price {
+      font-weight: 600;
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+    }
+
+    .buy-btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 12px;
+      background: #111;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .buy-btn:hover {
+      background: #333;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about img {
+      width: 100%;
+      border-radius: 20px;
+    }
+
+    .about-text h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      color: #666;
+      line-height: 1.9;
+      margin-bottom: 15px;
+    }
+
+    .cart {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: white;
+      border: 1px solid #ddd;
+      padding: 14px 20px;
+      border-radius: 40px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      font-weight: 600;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      border-top: 1px solid #ddd;
+      color: #777;
+      background: white;
+    }
+
+    @media(max-width:768px) {
+      .hero h2 {
+        font-size: 2.5rem;
+      }
+
+      .menu {
+        gap: 15px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="/mnt/data/842c4128-b033-4ae0-852f-5d8dd847b292.jpeg" alt="Logo Perfumería MR">
+        <h1>Perfumería MR</h1>
+      </div>
+
+      <ul class="menu">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#productos">Perfumes</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="inicio">
+    <div class="hero-content">
+      <h2>Lujo Árabe en Cada Aroma</h2>
+      <p>
+        Descubre perfumes exclusivos con esencia oriental, elegancia y poder.
+        En Perfumería MR encontrarás fragancias premium diseñadas para dejar huella.
+      </p>
+      <a href="#productos" class="btn">Explorar Colección</a>
+    </div>
+  </section>
+
+  <section id="productos">
+    <div class="section-title">
+      <h3>Nuestros Perfumes</h3>
+      <p>Fragancias exclusivas para hombres y mujeres</p>
+    </div>
+
+    <div class="products" id="productContainer"></div>
+  </section>
+
+  <section id="nosotros">
+    <div class="about">
+      <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=1200&auto=format&fit=crop" alt="Perfumería">
+
+      <div class="about-text">
+        <h3>Sobre Perfumería MR</h3>
+        <p>
+          Perfumería MR nace con el objetivo de ofrecer perfumes árabes exclusivos,
+          sofisticados y de larga duración. Nuestro catálogo está inspirado en el lujo,
+          la elegancia y la cultura oriental.
+        </p>
+
+        <p>
+          Cada fragancia está cuidadosamente seleccionada para brindar una experiencia
+          única y memorable.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="section-title">
+      <h3>Contacto</h3>
+      <p>Estamos listos para ayudarte</p>
+    </div>
+
+    <div style="text-align:center; line-height: 2; color:#ccc;">
+      <p>📍 México</p>
+      <p>📞 +52 55 0000 0000</p>
+      <p>✉ contacto@perfumeriamr.com</p>
+    </div>
+  </section>
+
+  <div class="cart" id="cart">
+    🛒 Carrito: 0
+  </div>
+
+  <footer>
+    <p>© 2026 Perfumería MR | Elegancia y Exclusividad</p>
+  </footer>
+
+  <script>
+    const perfumes = [
+      {
+        name: 'Hunter For Men',
+        price: 899,
+        image: '/mnt/data/a55b6a25-3552-43ed-8ac8-b1dea6a4cae3.png',
+        description: 'Fragancia masculina elegante con notas cálidas y sofisticadas.'
+      },
+      {
+        name: 'Chants Tenderina',
+        price: 1299,
+        image: '/mnt/data/25227870-8d11-4058-b686-f56c065aaab2.png',
+        description: 'Perfume femenino floral inspirado en aromas suaves y delicados.'
+      },
+      {
+        name: 'Aruba Gold',
+        price: 1499,
+        image: '/mnt/data/a0b501c5-b3d9-45cb-a862-f8673bbb313a.png',
+        description: 'Fragancia fresca cítrica con personalidad vibrante y moderna.'
+      },
+      {
+        name: 'Liam Blue Lattafa',
+        price: 1699,
+        image: '/mnt/data/58e1e154-ff04-4ada-9bea-60a39edbe4bc.png',
+        description: 'Aroma fresco acuático inspirado en perfumes de lujo modernos.'
+      }
+    ];
+
+    const productContainer = document.getElementById('productContainer');
+    const cart = document.getElementById('cart');
+
+    let cartCount = 0;
+
+    perfumes.forEach(perfume => {
+      const card = document.createElement('div');
+      card.classList.add('card');
+
+      card.innerHTML = `
+        <img src="${perfume.image}" alt="${perfume.name}">
+        <div class="card-content">
+          <h4>${perfume.name}</h4>
+          <p>${perfume.description}</p>
+          <div class="price">$${perfume.price} MXN</div>
+          <button class="buy-btn">Agregar al carrito</button>
+        </div>
+      `;
+
+      const button = card.querySelector('.buy-btn');
+
+      button.addEventListener('click', () => {
+        cartCount++;
+        cart.innerHTML = `🛒 Carrito: ${cartCount}`;
+
+        button.innerText = 'Agregado ✓';
+        button.style.opacity = '0.8';
+
+        setTimeout(() => {
+          button.innerText = 'Agregar al carrito';
+          button.style.opacity = '1';
+        }, 1500);
+      });
+
+      productContainer.appendChild(card);
+    });
+  </script>
+
+</body>
+</html>
